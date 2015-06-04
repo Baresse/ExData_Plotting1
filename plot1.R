@@ -40,15 +40,15 @@ plot1 <- function (savedFile = "./data/household_power_consumption.txt") {
         ## Set only one plot layout
         par(mfrow = c(1, 1)) 
         
+        ## Generate the plot as PNG image with the exact size and transparent background
+        png('./plot1.png',width=504,height=504,units="px",bg = "transparent")
+        
         ## Draw the plot 
         hist(data$Global_active_power, 
              main = "Global Active Power", 
              xlab = "Global Active Power (kilowatts)", 
              col = "red")
 
-        ## Copy the plot as PNG image
-        dev.copy(png, file = "./plot1.png")
-        
         ## Close PNG device
         dev.off()
 }

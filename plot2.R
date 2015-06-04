@@ -40,6 +40,9 @@ plot2 <- function (savedFile = "./data/household_power_consumption.txt") {
         ## Set only one plot layout
         par(mfrow = c(1, 1)) 
         
+        ## Generate the plot as PNG image with the exact size and transparent background
+        png('./plot2.png',width=504,height=504,units="px",bg = "transparent")
+        
         ## Draw the plot 
         with(data, 
              plot(x = timestamp, 
@@ -47,9 +50,6 @@ plot2 <- function (savedFile = "./data/household_power_consumption.txt") {
                   type="l", 
                   xlab = "", 
                   ylab = "Global Active Power (kilowatts)"))
-               
-        ## Copy the plot as PNG image
-        dev.copy(png, file = "./plot2.png")
         
         ## Close PNG device
         dev.off()
